@@ -1,0 +1,7 @@
+<?php
+    define("SFD13_DB_SERVER", "localhost");
+    define("SFD13_DB_USER", "szs");
+    define("SFD13_DB_PASSWORD", "hello");
+    define("SFD13_DB_NAME", "sfd13");
+	define("SFD13_FOLDER", "http://localhost/SFD13/");
+?>
