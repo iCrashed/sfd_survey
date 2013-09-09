@@ -16,4 +16,12 @@ Database Server Info are declared in include/definations.php
 
 Add Question
 
-Add the question in question table of database and question type (Radio Button/Checkbox) and options in option table
+Add the question in question table of database and question type 
+    
+    Question Type  0 ==> Text
+                   1 ==> Radio Button
+                   2 ==> Checkbox
+
+-------------------------------------------------------------------------------------------------------------
+
+
