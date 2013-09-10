@@ -119,7 +119,7 @@
 		echo($questions_fetch["id"] . ") ". $questions_fetch["question"]);
 	}
 	
-	function show_options($question_id)
+function show_options($question_id)
 	{
 	    SFD13_CONNECT_DB();
 	    $options = "SELECT * FROM options where `question_id` = $question_id";
@@ -166,11 +166,13 @@
 		return $count;
 	}
 	
-		function get_last_user_count()
+	
+	
+	function get_last_user_count()
 	{
 		SFD13_CONNECT_DB();
 	    $user_no = "SELECT user_no FROM answer";
-	    $user_no_query = mysql_query($questions);
+	    $user_no_query = mysql_query($user_no);
 		$count = 0;
 	
 	    while($user_no_fetch = mysql_fetch_array($user_no_query, MYSQL_ASSOC))
