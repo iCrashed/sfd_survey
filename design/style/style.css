@@ -1,0 +1,131 @@
+/*Reset Styles */
+html, body, div, span, 
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, img, small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+article, aside, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, section{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    text-size-adjust: 100%; 
+}
+
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+a{
+	outline:0;
+	border:0;
+}
+
+*{ 
+	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
+	box-sizing: border-box;         /* Opera/IE 8+ */
+}
+
+@-webkit-viewport {
+    width:device-width;
+}
+
+@-moz-viewport {
+    width:device-width;
+}
+
+@-ms-viewport {
+    width:device-width;
+}
+
+@-o-viewport {
+    width:device-width;
+}
+
+@viewport {
+    width:device-width;
+}
+
+/**
+@font-face {
+	font-family: 'Gudea';
+	font-style: normal;
+	font-weight: 400;
+	src: local('Gudea'), url(../fonts/gudea.woff) format('woff');
+}
+ */
+
+/*Body Styles */
+body{
+	background-color:#FCFCFC;
+	font-family:'Verdana', Arial;
+	color:#333;
+	font-size:12pt;
+}
+
+header{
+	padding: 10px;
+	padding-left:70px;
+	width:100%;
+	display:block;
+	background:#b2aba2;
+	border-bottom:1.5px solid #dedbd7;	
+}
+
+.backbox{
+	padding:50px;
+	background:url('sfd.png') center no-repeat fixed;
+	background-position:fixed;
+}
+
+
+.qbox{
+	overflow:auto;
+	background:url('line.png') ;
+	border:1.5px solid #efefef;
+	margin:25px;
+	padding:20px;
+}
+
+
+dt{
+	font-size:11pt;
+	opacity:0.7;
+	background-color: #dedbd7;
+	border-bottom:1px dashed;
+	border-width:50%;
+}
+dd{
+	color: #535F53;
+}
