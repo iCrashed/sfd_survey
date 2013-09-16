@@ -1,7 +1,7 @@
 <?php
     require_once('include/definations.php');
 	require_once('include/function.php');
-	
+	echo get_last_user_count();
    $last = get_last();    
    $wrong_input = 0;
    for($i = 1;$i <= $last; $i++ )
