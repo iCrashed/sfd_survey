@@ -181,6 +181,17 @@ function show_options($question_id)
 		}
 		return $count;
 	}
+	
+	function type($q_id) {
+		SFD13_CONNECT_DB();
+	    $answer_type = "SELECT answer_type FROM question where `id` = $q_id";
+	    $answer_type_query = mysql_query($answer_type);
+		while ($answer_type_fetch = mysql_fetch_array($answer_type_query, MYSQL_ASSOC))
+		{
+			$ans_type = $answer_type_fetch["answer_type"]; 
+		}
+		return $ans_type;
+	}
 ?>
 
 
