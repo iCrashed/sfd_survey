@@ -27,7 +27,7 @@
 
 <body>
 	<div class = "wish">HAPPY SOFTWARE FREEDOM DAY!!!</div>
-    <h1> Please Anser Fill All The Questions</h1>
+    <h1> Please Fill All Answer of The Questions</h1>
     <div class = "question_box">
             <div class = "questions">
             <h1> SURVEY</h1>
@@ -48,7 +48,7 @@ SFD13_CONNECT_DB();
 			echo "<br />";
          if($questions_fetch["answer_type"] == 0) 
          {
-         	if(isset($_POST[$id])) { echo '&nbsp &nbsp &nbsp<input type = "textarea" name = "'.$id.' value = "'.$_POST[$id].'">';}
+         	if(isset($_POST[$id])) { echo '&nbsp &nbsp &nbsp<input type = text name = "'.$id.'" placeholder = "'.$_POST[$id].'" value = "'.$_POST[$id].'">';}
          	else {echo '&nbsp &nbsp &nbsp<input type = "textarea" name = "'.$id.'">';}
             echo "<br /><br />";
          }
@@ -93,11 +93,10 @@ SFD13_CONNECT_DB();
 	      $id = 1;
 	      while ($id <= $last_id)
 	      {
-		      if(!isset($_POST[$id])) $answer = 0;
-		      else 
-		      {
+		      
+		      
 			      $answer = $_POST[$id];
-		      }
+		      
 		
 		      add_answers($id,$answer);
 		      $id++;
