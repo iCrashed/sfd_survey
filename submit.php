@@ -1,7 +1,7 @@
 <?php
     require_once('include/definations.php');
 	require_once('include/function.php');
-	echo get_last_user_count();
+	
    $last = get_last();    
    $wrong_input = 0;
    for($i = 1;$i <= $last; $i++ )
@@ -12,7 +12,7 @@
            $wrong_input++;
            } 
    }  	
-   echo $wrong_input;
+   //echo $wrong_input;
 	if($wrong_input != 0) 
 	{
 ?>
@@ -27,7 +27,7 @@
 
 <body>
 	<div class = "wish">HAPPY SOFTWARE FREEDOM DAY!!!</div>
-    <h1> Please Fill All Answer of The Questions</h1>
+    <div class = "not_filled"> Please answer all the questions</div>
     <div class = "question_box">
             <div class = "questions">
             <h1> SURVEY</h1>
@@ -43,12 +43,12 @@ SFD13_CONNECT_DB();
         {
 			$val = 0;
 		    $id = $questions_fetch["id"];
-			if(!isset($_POST[$id])) echo ($questions_fetch["id"] . ") ". $questions_fetch["question"]) ."***";	
+			if(!isset($_POST[$id])) echo ($questions_fetch["id"] . ") ". $questions_fetch["question"]) ."<a class = 'asterisk'>***</a>";	
     		 else	echo($questions_fetch["id"] . ") ". $questions_fetch["question"]);
 			echo "<br />";
          if($questions_fetch["answer_type"] == 0) 
          {
-         	if(isset($_POST[$id])) { echo '&nbsp &nbsp &nbsp<input type = text name = "'.$id.'" placeholder = "'.$_POST[$id].'" value = "'.$_POST[$id].'">';}
+         	if(isset($_POST[$id])) { echo '&nbsp &nbsp &nbsp<input type = text name = "'.$id.'" placeholder = "'.$_POST[$id].'" svalue = "'.$_POST[$id].'">';}
          	else {echo '&nbsp &nbsp &nbsp<input type = "textarea" name = "'.$id.'">';}
             echo "<br /><br />";
          }
@@ -91,12 +91,14 @@ SFD13_CONNECT_DB();
    {
    		$last_id = $_POST["id_number"];
 	      $id = 1;
+	      add_visitor_info();
 	      while ($id <= $last_id)
 	      {
-		      
-		      
+		      if(!isset($_POST[$id])) $answer = 0;
+		      else 
+		      {
 			      $answer = $_POST[$id];
-		      
+		      }
 		
 		      add_answers($id,$answer);
 		      $id++;
