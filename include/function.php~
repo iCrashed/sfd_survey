@@ -66,12 +66,13 @@
 	function add_visitor_info()
 	{
 		$_SERVER['HTTP_USER_AGENT'];
-       $browser = get_browser();
-       $time =  456;
+      $browser = get_browser(null, true);
+       $time =  time ( void );
        $ip = $_SERVER["REMOTE_ADDR"];
 	   $b = $browser["parent"];
-	   $os = $browser["platform"];
-       $sql = "INSERT INTO visitor_info (browser, os, ip, timestamp) values('$b','$os','$ip','$time')";
+	   $os = "yy";
+	   $user_no = get_last_user_count() + 1; 
+       $sql = "INSERT INTO visitor_info (user_no, browser, os, ip, timestamp) values('$user_no','$b','$os','$ip','$time')";
 	   $query = mysql_query("$sql") or die("Couldn't Enter Data to MySql : ".mysql_error());
 	} 
 	
@@ -119,7 +120,7 @@
 		echo($questions_fetch["id"] . ") ". $questions_fetch["question"]);
 	}
 	
-	function show_options($question_id)
+function show_options($question_id)
 	{
 	    SFD13_CONNECT_DB();
 	    $options = "SELECT * FROM options where `question_id` = $question_id";
@@ -166,11 +167,13 @@
 		return $count;
 	}
 	
-		function get_last_user_count()
+	
+	
+	function get_last_user_count()
 	{
 		SFD13_CONNECT_DB();
-	    $user_no = "SELECT user_no FROM answer";
-	    $user_no_query = mysql_query($questions);
+	    $user_no = "SELECT user_no FROM visitor_info";
+	    $user_no_query = mysql_query($user_no);
 		$count = 0;
 	
 	    while($user_no_fetch = mysql_fetch_array($user_no_query, MYSQL_ASSOC))
@@ -178,6 +181,17 @@
 			$count++;
 		}
 		return $count;
+	}
+	
+	function type($q_id) {
+		SFD13_CONNECT_DB();
+	    $answer_type = "SELECT answer_type FROM question where `id` = $q_id";
+	    $answer_type_query = mysql_query($answer_type);
+		while ($answer_type_fetch = mysql_fetch_array($answer_type_query, MYSQL_ASSOC))
+		{
+			$ans_type = $answer_type_fetch["answer_type"]; 
+		}
+		return $ans_type;
 	}
 ?>
 

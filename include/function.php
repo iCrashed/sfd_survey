@@ -67,7 +67,7 @@
 	{
 		$_SERVER['HTTP_USER_AGENT'];
       $browser = get_browser(null, true);
-       $time =  456;
+       $time =  time (void);
        $ip = $_SERVER["REMOTE_ADDR"];
 	   $b = $browser["parent"];
 	   $os = "yy";
