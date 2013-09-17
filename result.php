@@ -17,10 +17,15 @@
 				$ans_type = type($count);
 				if  ($ans_type == 0)
 				{
-					$count++;
-					$ans_type = type($count);
-				}
 			?>
+					var question = '<?php show_question($count);?>';
+					$('#container').html(question);
+					var ans = '<?php show_text($count);?>';
+					var ans_field = document.createElement("div");
+					ans_field.innerHTML = ans;
+					document.getElementById("container").appendChild(ans_field);
+					
+			<?php } else {?>
 				$('#container').highcharts({
 					chart: {
 						type: 'column'
@@ -57,6 +62,7 @@
 						<?php show_options($count);?>
 					]
 				});
+			<?php }?>
 		});
     </script>
     <script src="js/highcharts.js"></script>
@@ -71,7 +77,7 @@
     <div class = "thank_you">Survey Results</div>
 	<div class = "results">
     </div>
-	<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+	<div id="container" style=" min-width: 310px; height: 400px; margin: 0 auto"></div><div id = "answer"></div>
     <div class = "for_button">
     <form method="post" action="result.php">
     	<input type="hidden" name="next_question" value="<?php $count = inc_count($count); echo $count;?>">
