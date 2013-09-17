@@ -66,12 +66,13 @@
 	function add_visitor_info()
 	{
 		$_SERVER['HTTP_USER_AGENT'];
-       $browser = get_browser();
+      $browser = get_browser(null, true);
        $time =  456;
        $ip = $_SERVER["REMOTE_ADDR"];
 	   $b = $browser["parent"];
-	   $os = $browser["platform"];
-       $sql = "INSERT INTO visitor_info (browser, os, ip, timestamp) values('$b','$os','$ip','$time')";
+	   $os = "yy";
+	   $user_no = get_last_user_count() + 1; 
+       $sql = "INSERT INTO visitor_info (user_no, browser, os, ip, timestamp) values('$user_no','$b','$os','$ip','$time')";
 	   $query = mysql_query("$sql") or die("Couldn't Enter Data to MySql : ".mysql_error());
 	} 
 	
@@ -171,7 +172,7 @@ function show_options($question_id)
 	function get_last_user_count()
 	{
 		SFD13_CONNECT_DB();
-	    $user_no = "SELECT user_no FROM answer";
+	    $user_no = "SELECT user_no FROM visitor_info";
 	    $user_no_query = mysql_query($user_no);
 		$count = 0;
 	
