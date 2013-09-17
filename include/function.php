@@ -120,7 +120,7 @@
 		echo($questions_fetch["id"] . ") ". $questions_fetch["question"]);
 	}
 	
-function show_options($question_id)
+	function show_options($question_id)
 	{
 	    SFD13_CONNECT_DB();
 	    $options = "SELECT * FROM options where `question_id` = $question_id";
@@ -145,6 +145,23 @@ function show_options($question_id)
 			echo '{ 	name: "'.$option.'", data:['.$amount.']	}';
 						
 		}
+	}
+	
+	function show_text($question_id)
+	{
+	    SFD13_CONNECT_DB();
+	    $answer = "SELECT answer FROM answer where `question_id` = $question_id";
+	    $answer_query = mysql_query($answer);
+		$count = 1;
+		echo '<table>';
+		while($answer_fetch = mysql_fetch_array($answer_query, MYSQL_ASSOC))
+		{
+			$ans = $answer_fetch["answer"]; 
+			if ($count == 1) echo '<tr><td>User number</td></tr>';
+			echo '<tr><td>'.$count.': </td><td>'.$ans.'</td></tr>';
+			$count++;
+		}
+		echo '</table>';
 	}
 	
 	function inc_count($count)

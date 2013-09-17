@@ -91,6 +91,18 @@ h1 {
 	margin-right: 20px;
 	margin-bottom: 30px;
 }
+#container {
+	color: #666;
+	text-align: center;
+	font-size: 16pt;
+	overflow-y: auto;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+table {
+	text-align: left;
+	margin-left: 500px;
+	margin-top: 30px;
+}
 .button_submit {
 	margin-left: 42%;
 	cursor: pointer;
