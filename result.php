@@ -14,13 +14,19 @@
 			<?php 
 				if(!isset($_POST["next_question"])) $count = 1; 
 				else $count = $_POST["next_question"]; 
+				$ans_type = type($count);
+				if  ($ans_type == 0)
+				{
+					$count++;
+					$ans_type = type($count);
+				}
 			?>
 				$('#container').highcharts({
 					chart: {
 						type: 'column'
 					},
 					title: {
-						text: '<?php show_question($count); ?>'
+						text: '<?php show_question($count);?>'
 					},
 					xAxis: {
 						categories: [
@@ -68,8 +74,11 @@
 	<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
     <div class = "for_button">
     <form method="post" action="result.php">
-    	<input type="hidden" name="next_question" value="<?php $count = inc_count($count); echo $count;?>">        
-        <input class = "next_button" type="submit" value="Next Question">
+    	<input type="hidden" name="next_question" value="<?php $count = inc_count($count); echo $count;?>">
+        <?php
+			$last_id = get_last();
+			if ($last_id >= $count)	echo'<input class = "next_button" type="submit" value="Next Question">';
+		?>
     </form>
     </div>
     </body>
