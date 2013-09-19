@@ -26,4 +26,8 @@ Then Add options in option table
 
 -------------------------------------------------------------------------------------------------------------
 
+Application tracks the IP, timestamp of submition, (Browser and OS of the user on submition ) 
+
+
+--------------------------------------------------------------------------------------------------------------
 The answer in text are not displayed in the graph. Keywords can be used to identify the anwer using regex and displaying it respectivly 
