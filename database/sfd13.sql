@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Sep 19, 2013 at 05:03 PM
+-- Generation Time: Sep 19, 2013 at 05:10 PM
 -- Server version: 5.5.31
 -- PHP Version: 5.4.16
 
@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS `answer` (
   `question_id` int(11) NOT NULL,
   `answer` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=95 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=98 ;
 
 --
 -- Dumping data for table `answer`
@@ -43,7 +43,10 @@ CREATE TABLE IF NOT EXISTS `answer` (
 INSERT INTO `answer` (`id`, `user_no`, `question_id`, `answer`) VALUES
 (83, 1, 1, '2'),
 (84, 1, 2, 'Bob'),
-(85, 1, 3, '0');
+(85, 1, 3, '0'),
+(95, 2, 1, '0'),
+(96, 2, 2, 'sda'),
+(97, 2, 3, '1');
 
 -- --------------------------------------------------------
 
@@ -105,14 +108,15 @@ CREATE TABLE IF NOT EXISTS `visitor_info` (
   `timestamp` datetime NOT NULL,
   `ip` varchar(10) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=26 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=27 ;
 
 --
 -- Dumping data for table `visitor_info`
 --
 
 INSERT INTO `visitor_info` (`id`, `user_no`, `os`, `browser`, `timestamp`, `ip`) VALUES
-(21, 1, 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/29.0.1547.65 Safari/537.36', '', '2013-09-19 06:53:07', '127.0.0.1');
+(21, 1, 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/29.0.1547.65 Safari/537.36', '', '2013-09-19 06:53:07', '127.0.0.1'),
+(26, 2, 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:23.0) Gecko/20100101 Firefox/23.0', '', '2013-09-19 17:08:49', '127.0.0.1');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
