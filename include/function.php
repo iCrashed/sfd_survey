@@ -65,14 +65,12 @@
 	
 	function add_visitor_info()
 	{
-		$_SERVER['HTTP_USER_AGENT'];
-      $browser = get_browser(null, true);
-       $time =  time (void);
+		$info = $_SERVER['HTTP_USER_AGENT'];
+       $time =  date("Y-m-d H:i:s");
        $ip = $_SERVER["REMOTE_ADDR"];
-	   $b = $browser["parent"];
-	   $os = "yy";
+	$b = '';
 	   $user_no = get_last_user_count() + 1; 
-       $sql = "INSERT INTO visitor_info (user_no, browser, os, ip, timestamp) values('$user_no','$b','$os','$ip','$time')";
+       $sql = "INSERT INTO visitor_info (user_no, browser, os, ip, timestamp) values('$user_no','$b','$info','$ip','$time')";
 	   $query = mysql_query("$sql") or die("Couldn't Enter Data to MySql : ".mysql_error());
 	} 
 	
